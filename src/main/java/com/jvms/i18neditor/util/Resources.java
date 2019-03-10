@@ -280,7 +280,7 @@ public final class Resources {
 		return object;
 	}
 	
-	private static JsonElement toJson(Map<String,String> translations, String key, List<String> keys) {
+	public static JsonElement toJson(Map<String,String> translations, String key, List<String> keys) {
 		if (keys.size() > 0) {
 			JsonObject object = new JsonObject();
 			ResourceKeys.uniqueRootKeys(keys).forEach(rootKey -> {

@@ -29,9 +29,9 @@ class LocalesTest {
 		assertNotEquals(Locales.parseLocale(input), null);
 		Locale locale = Locales.parseLocale(input);
 		String[] tmp = input.split("_");
-		assertEquals(locale.getLanguage(), tmp[0]);
-		assertEquals(locale.getCountry(), tmp[1]);
-		assertEquals(locale.getVariant(), tmp[2]);
+		assertEquals(tmp[0], locale.getLanguage());
+		assertEquals(tmp[1], locale.getCountry());
+		assertEquals(tmp[2], locale.getVariant());
 	}
 	
 	@ParameterizedTest
@@ -40,15 +40,15 @@ class LocalesTest {
 		assertNotEquals(Locales.parseLocale(input), null);
 		Locale locale = Locales.parseLocale(input);
 		String tmp = input.indexOf("-") == -1 ? input : "";
-		assertEquals(locale.getLanguage(), tmp.toLowerCase());
-		assertEquals(locale.getCountry(), input.indexOf("-") == -1 ? "" : input.split("-")[1].toUpperCase());
-		assertEquals(locale.getVariant(), "");
+		assertEquals(tmp.toLowerCase(), locale.getLanguage());
+		assertEquals(input.indexOf("-") == -1 ? "" : input.split("-")[1].toUpperCase(), locale.getCountry());
+		assertEquals("", locale.getVariant());
 	}
 
 	@ParameterizedTest
 	@MethodSource("badStrings")
 	void testParseLocaleInvalid(String input) {
-		assertEquals(Locales.parseLocale(input), null);
+		assertEquals(null, Locales.parseLocale(input));
 	}
 	
 }

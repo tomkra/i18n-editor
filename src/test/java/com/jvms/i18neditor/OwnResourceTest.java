@@ -33,7 +33,7 @@ class OwnResourceTest {
 		Resource tmp = mock(Resource.class);
 		when(tmp.supportsParentValues()).thenReturn(false);
 		resource.storeTranslation("key", "value");
-		assertEquals(resource.getTranslation("key"), "value");
+		assertEquals("value", resource.getTranslation("key"));
 	}
 	
 	@Test
@@ -56,7 +56,7 @@ class OwnResourceTest {
 		resource.storeTranslation("key", "value");
 		assertEquals(translations, resource.getTranslations());
 		resource.storeTranslation("key", "value2");
-		assertEquals(resource.getTranslation("key"), "value2");
+		assertEquals("value2", resource.getTranslation("key"));
 	}
 
 	@ParameterizedTest
