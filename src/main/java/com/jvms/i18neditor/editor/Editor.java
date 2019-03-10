@@ -291,7 +291,7 @@ public class Editor extends JFrame {
 	
 	public boolean addTranslation(String key) {
 		if (!ResourceKeys.isValid(key)) {
-			showError(MessageBundle.get("dialogs.translation.key.error"));
+//			showError(MessageBundle.get("dialogs.translation.key.error"));
 			return false;
 		}
 		TranslationTreeNode node = translationTree.getNodeByKey(key);

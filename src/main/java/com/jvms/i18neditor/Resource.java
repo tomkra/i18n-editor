@@ -257,7 +257,7 @@ public class Resource {
 		newTranslations.forEach(this::storeTranslation);
 	}
 	
-	private void removeChildren(String key) {
+	public void removeChildren(String key) {
 		Lists.newLinkedList(translations.keySet()).forEach(k -> {
 			if (ResourceKeys.isChildKeyOf(k, key)) {
 				translations.remove(k);
@@ -265,7 +265,7 @@ public class Resource {
 		});
 	}
 	
-	private void removeParents(String key) {
+	public void removeParents(String key) {
 		Lists.newLinkedList(translations.keySet()).forEach(k -> {
 			if (ResourceKeys.isChildKeyOf(key, k)) {
 				translations.remove(k);
@@ -273,7 +273,7 @@ public class Resource {
 		});
 	}
 	
-	private void notifyListeners() {
+	public void notifyListeners() {
 		listeners.forEach(l -> l.resourceChanged(new ResourceEvent(this)));
 	}
 	
